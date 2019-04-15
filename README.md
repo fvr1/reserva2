@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+```md
+
+docker-compose build
+docker-compose up
+docker-compose down
+
+```
