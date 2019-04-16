@@ -1,4 +1,4 @@
-FROM ruby:latest
+FROM ruby:2.6.2
 
 ENV LANG C.UTF-8
 
@@ -14,7 +14,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
     && apt-get update \
     && apt-get install -y yarn
 
-ENV APP_HOME /inventory-management
+ENV APP_HOME /reserva2
 
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
