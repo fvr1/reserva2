@@ -6,6 +6,7 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :comment
       t.integer :status
+      t.belongs_to :state
 
       t.timestamps
     end

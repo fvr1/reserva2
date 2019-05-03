@@ -1,3 +1,6 @@
 class State < ApplicationRecord
-  enum type: [:vacation, :never_available, :reservation]
+  enum category: [:vacation, :never_available, :reservation]
+  belongs_to :block
+  belongs_to :resource
+  has_one :reservation
 end
