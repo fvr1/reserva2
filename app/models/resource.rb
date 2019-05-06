@@ -1,4 +1,4 @@
 class Resource < ApplicationRecord
   belongs_to :company
-  has_many :state
+  has_many :states
 end

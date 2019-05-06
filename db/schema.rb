@@ -10,9 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_05_02_231417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blocks", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "day"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_blocks_on_company_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "mail"
+    t.string "phone"
+    t.string "adress"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "mail"
+    t.string "phone"
+    t.string "name"
+    t.text "comment"
+    t.integer "status"
+    t.bigint "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_reservations_on_state_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.text "details"
+    t.string "category"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_resources_on_company_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.integer "category"
+    t.date "date"
+    t.bigint "resource_id"
+    t.bigint "block_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_states_on_block_id"
+    t.index ["resource_id"], name: "index_states_on_resource_id"
+  end
 
 end

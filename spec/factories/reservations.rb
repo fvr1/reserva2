@@ -1,9 +1,9 @@
 FactoryBot.define do
-  factory :company do
+  factory :reservation do
     mail { "MyString" }
     phone { "MyString" }
-    adress { "MyString" }
     name { "MyString" }
-    description { "MyText" }
+    comment { "MyText" }
+    status { 1 }
   end
 end
