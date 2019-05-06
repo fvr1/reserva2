@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Resource, type: :model do
   describe 'Associations' do
-    it { is_expected.to have_many(:state) }
+    it { is_expected.to have_many(:states) }
     it { is_expected.to belong_to(:company)}
   end
 
