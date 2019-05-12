@@ -1,7 +1,10 @@
+require_dependency "app/services/resource_service.rb"
+
 class ResourcesController < ApplicationController
-  before_action :set_resource, only: %i[update destroy show]
+  skip_before_action :verify_authenticity_token
+
   def index
-    @resources = Resource.all
+    @resources = ResourceService.index
     render json: @resources, status: 200
   end
 
@@ -14,8 +17,8 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = Resource.new(resources_params)
-    if @resource.save
+    @resource = ResourceService.create(params)
+    if @resource
       render json: @resource, status: 200
     else
       render json: {}, status: :unprocessable_entity
@@ -23,7 +26,8 @@ class ResourcesController < ApplicationController
   end
 
   def update
-    if @resource.update(resources_params)
+    @resource = ResourceService.update(params)
+    if @resource
       render json: @resource, status: 200
     else
       render json: {}, status: :unprocessable_entity
@@ -31,7 +35,8 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-    if @resource.destroy
+    @resource = ResourceService.destroy(params)
+    if @resource == {}
       render json: {}, status: 200
     else
       render json: {}, status: 500
@@ -39,15 +44,4 @@ class ResourcesController < ApplicationController
   end
 
   private
-  def set_resource
-    if Resource.exists?(id: params[:id])
-      @resource = Resource.find(params[:id])
-    else
-      @resource = nil
-    end
-  end
-
-  def resources_params
-    params.require(:resource).permit(:name, :details, :category, :company_id)
-  end
 end
