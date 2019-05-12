@@ -20,11 +20,11 @@ RSpec.describe ResourcesController, type: :controller do
       pending "delete resource"
     end
   end
-  describe "Private params" do
-    describe "wrong params" do
+  describe "Private params POST/UPDATE :name :details :category :company_id" do
+    describe "wrong params: missing some" do
     end
 
-    describe "correct params" do
+    describe "correct params: all given" do
     end
   end
 
