@@ -7,17 +7,17 @@
 
   <% data_blocks.each do |block| %>
     <div>
-      <%= block[:start_time] %>
-      <%= block[:end_time] %>
-      <%= block[:available] %>
+      <%= block.start_time %>
+      <%= block.end_time %>
+      <%= block.available %>
     </div>
   <% end %>
 <% end %>
 
 <% @data_blocks.each do |block| %>
     <div>
-      <%= block[:start_time] %>
-      <%= block[:end_time] %>
-      <%= block[:available] %>
+      <%= block.start_time %>
+      <%= block.end_time %>
+      <%= block.available %>
     </div>
   <% end %>
