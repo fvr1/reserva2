@@ -11,7 +11,7 @@ module ResourceService
       if @resource
         @resource
       else
-        {}
+        nil
       end
     end
 
@@ -21,7 +21,7 @@ module ResourceService
       if @resource.save
         filter_params(@resource)
       else
-        {}
+        nil
       end
     end
 
@@ -30,7 +30,7 @@ module ResourceService
       if @resource and @resource.update(resources_params(params))
         filter_params(@resource)
       else
-        {}
+        nil
       end
     end
 

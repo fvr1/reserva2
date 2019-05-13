@@ -9,39 +9,27 @@ class ResourcesController < ApplicationController
   end
 
   def show
-    if @resource
-      render json: @resource, status: 200
-    else
-      render json: {}, status: 404
-    end
+    @resource = ResourceService.show(params)
+    @resource ? render_json(@resource, 200) : render_json({}, 404)
   end
 
   def create
     @resource = ResourceService.create(params)
-    if @resource
-      render json: @resource, status: 200
-    else
-      render json: {}, status: :unprocessable_entity
-    end
+    @resource ? render_json(@resource, 200) : render_json({}, :unprocessable_entity)
   end
 
   def update
     @resource = ResourceService.update(params)
-    if @resource
-      render json: @resource, status: 200
-    else
-      render json: {}, status: :unprocessable_entity
-    end
+    @resource ? render_json(@resource, 200) : render_json({}, :unprocessable_entity)
   end
 
   def destroy
     @resource = ResourceService.destroy(params)
-    if @resource == {}
-      render json: {}, status: 200
-    else
-      render json: {}, status: 500
-    end
+    @resource == {} ? render_json({}, 200) : render_json({}, 500)
   end
 
   private
+  def render_json(resource, status)
+    render json: resource, status: status
+  end
 end
