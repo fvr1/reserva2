@@ -7,9 +7,9 @@
 
   <% data_blocks.each do |block| %>
     <div>
-      <%= block.start_time %>
-      <%= block.end_time %>
-      <%= block.available %>
+      Start time <%= block.start_time.strftime("%H:%M")%> <br/>
+      Start time <%= block.end_time.strftime("%H:%M") %> <br/>
+      Available <%= block.available %>
     </div>
   <% end %>
 <% end %>
