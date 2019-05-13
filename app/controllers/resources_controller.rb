@@ -1,4 +1,4 @@
-require_dependency "app/services/resource_service.rb"
+# require_dependency "app/services/resource_service.rb"
 
 class ResourcesController < ApplicationController
   skip_before_action :verify_authenticity_token

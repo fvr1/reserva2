@@ -2,7 +2,16 @@ require 'rails_helper'
 
 RSpec.describe ResourcesController, type: :controller do
   describe "Methods" do
+    let(:params) do
+      p :params
+    end
     describe "GET resources#index" do
+      before do
+        get :index
+      end
+      it "returns http success" do
+        expect(response).to have_http_status(200)
+      end
       context "when there is no user" do
         pending "no user"
       end
