@@ -1,9 +1,9 @@
 <h1><%=@company.name%></h1>
+<h3><%=@resource.name%></h3>
 
 
 <%= week_calendar events: @data_blocks do |date, data_blocks| %>
   <%= date %>
-
 
   <% data_blocks.each do |block| %>
     <div>
@@ -13,11 +13,3 @@
     </div>
   <% end %>
 <% end %>
-
-<% @data_blocks.each do |block| %>
-    <div>
-      <%= block.start_time %>
-      <%= block.end_time %>
-      <%= block.available %>
-    </div>
-  <% end %>
