@@ -1,7 +1,7 @@
 class BlocksController < ApplicationController
   def index
-    @block = BlockService.index
-    render json: @block, status: 200
+    @blocks = BlockService.index
+    render json: @blocks, status: 200
   end
   def show
     @block = BlockService.show(params)
