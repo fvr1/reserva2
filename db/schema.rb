@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_231417) do
   create_table "companies", force: :cascade do |t|
     t.string "mail"
     t.string "phone"
-    t.string "adress"
+    t.string "address"
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
