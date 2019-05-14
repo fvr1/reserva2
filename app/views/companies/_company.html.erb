@@ -1,0 +1,22 @@
+<% companies.each do |company| %>
+      <div class="panel panel-custom border-album">
+        <div class="panel-heading panel-album">
+          <div class="field">
+            <h3 class="panel-title pull-left">
+              <%= link_to company.name, company_path(company), title:'View Company', 'data-toggle': 'tooltip', 'data-placement': 'top' %>
+                <%= link_to edit_company_path(company) do %>
+                <i class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="Edit Company"> </i>
+                <% end %>
+                <%= link_to company_path(company), method: :delete do %>
+                <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="Remove Company"> </i>
+                <% end %>
+            </h3>
+            <div class="clearfix"> </div>
+          </div>
+
+        </div>
+        <div class="panel-body">
+        </div>
+
+      </div>
+<% end %>

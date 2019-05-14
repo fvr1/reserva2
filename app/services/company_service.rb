@@ -3,7 +3,7 @@ module CompanyService
 
     def index
       @companies = Company.all
-      @companies.map { |company| filter_params(company) }
+      # @companies.map { |company| filter_params(company) }
     end
     def show(params)
       @company = set_company(params, true)
@@ -50,7 +50,8 @@ module CompanyService
     end
     
     def filter_params(company)
-      company.attributes.except("created_at", "updated_at")
+      company
+      # company.attributes.except("created_at", "updated_at")
     end
 
     def company_params(params)

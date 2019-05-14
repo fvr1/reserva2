@@ -1,0 +1,37 @@
+<div class="panel panel-default panel-edit">
+  <div class="panel-heading text-center form-heading"> <%= @title %> </div>
+  <div class="panel-body">
+    <%= form_for(@album, :html => {role: "form", class: "form-horizontal"}) do |f| %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre del Album" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :artist_id %> <br>
+        <%= collection_select :album, :artist_id, Artist.all, :id, :name, {prompt: "Select an artist"}, {class: "form-control"} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :genre_id %><br />
+        <%= collection_select :album, :genre_id, Genre.all, :id, :name, {prompt: "Select Genre"}, {class: "form-control"} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :year %><br />
+        <%= f.text_field :year, class: "form-control", placeholder: "Año de Lanzamiento" %>
+      </div>
+
+      <br>
+
+      <div class="field">
+        <%= f.submit "Create Album!", class: 'btn btn-default btn-primary btn-md btn-block' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="panel-footer text-center">
+    [ <%= link_to "Cancel Request", albums_path %> ]
+  </div>
+
+</div>
