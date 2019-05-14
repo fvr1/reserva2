@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
+ 
+ body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif 
+ }

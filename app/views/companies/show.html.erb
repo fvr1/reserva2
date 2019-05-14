@@ -1,0 +1,15 @@
+<h1><%=@company.name%></h1>
+<h3><%=@resource.name%></h3>
+
+
+<%= week_calendar events: @data_blocks do |date, data_blocks| %>
+  <%= date %>
+
+  <% data_blocks.each do |block| %>
+    <div>
+      Start time <%= block.start_time.strftime("%H:%M")%> <br/>
+      Start time <%= block.end_time.strftime("%H:%M") %> <br/>
+      Available <%= block.available %>
+    </div>
+  <% end %>
+<% end %>

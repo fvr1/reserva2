@@ -6,9 +6,9 @@ module CompanyService
       @companies.map { |company| filter_params(company) }
     end
     def show(params)
-      @company = set_company(params, true)
+      @company = set_company(params, false)
       if @company
-        filter_params(@company)
+        @company
       else
         nil
       end
