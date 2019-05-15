@@ -1,20 +1,19 @@
-<h1><%=@company.name%></h1>
-<h3><%=@resource.name%></h3>
+<h1><%= @company.name %></h1>
+<h3><%= @resource.name %></h3>
 
 
 <%= week_calendar events: @data_blocks do |date, data_blocks| %>
   <span class="data-block" id="">
     <%= date %>
-    <% data_blocks.each do |block| %>
-      <div>
-        Start time <%= block.start_time.strftime("%H:%M")%> <br/>
-        Start time <%= block.end_time.strftime("%H:%M") %> <br/>
-        <span class="<%= block.available ? "available" : "not-available" %>"> <%= block.available ? "Available" : "Not available" %></span>
-      </div>
-    <% end %>
   </span>
+  <% data_blocks.each do |block| %>
+    <div class="block <%= block.available ? "available" : "not-available" %>" data-block-id="<%= block.block.id %>" data-date="<%= block.start_time %>">
+      Start time <%= block.start_time.strftime("%H:%M")%> <br/>
+      End time <%= block.end_time.strftime("%H:%M") %> <br/>
+    </div>
+  <% end %>
 <% end %>
 
 <div id="reservation-form">
-  <%= render template: "reservations/new" %>
+  <%= render 'states/form' %>
 </div>
