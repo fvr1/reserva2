@@ -7,7 +7,11 @@
     <%= date %>
   </span>
   <% data_blocks.each do |block| %>
-    <div class="block <%= block.available ? "available" : "not-available" %>" data-block-id="<%= block.block.id %>" data-date="<%= block.start_time %>">
+    <div
+      class="block <%= block.available ? "available" : "not-available" %>"
+      data-block-id="<%= block.block.id %>"
+      data-date="<%= block.start_time %>"
+    >
       Start time <%= block.start_time.strftime("%H:%M")%> <br/>
       End time <%= block.end_time.strftime("%H:%M") %> <br/>
     </div>
@@ -15,5 +19,24 @@
 <% end %>
 
 <div id="reservation-form">
+  <h3>Fill the following form to complete your booking.</h3>
+
+  <table>
+    <tr>
+      <th>Resource</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+    <tr>
+      <td><%= @resource.name %></td>
+      <td id="pre-reservation-date"></td>
+      <td id="pre-reservation-time"></td>
+    </tr>
+  <table>
+
   <%= render 'states/form' %>
+</div>
+
+<div id="not-available-block">
+  <h3>This block is unavailable.</h3>
 </div>

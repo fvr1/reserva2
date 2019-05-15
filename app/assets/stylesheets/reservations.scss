@@ -1,3 +1,46 @@
 // Place all the styles related to the Reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#reservation-form {
+  #form-container {
+    padding-left: 35%;
+    padding-right: 35%;
+
+    div {
+      width: 100%;
+      margin: 15px 0px;
+
+      label {
+        margin-bottom: 5px;
+        font-size: 20px;
+        display: block;
+      }
+
+      input, textarea {
+        font-size: 18px;
+        width: 100%;
+      }
+
+      input[type=text],
+      input[type=email] {
+        border-radius: 5px;
+        height: 25px;
+      }
+    }
+  }
+
+  table {
+    margin: 0% 5%;
+    width: 80%;
+    border-collapse: collapse;
+
+    td, th {
+      border: 1px solid black;
+    }
+
+    td {
+      text-align: center;
+    }
+  }
+}

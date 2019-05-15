@@ -8,8 +8,6 @@ class CompaniesController < ApplicationController
     other_ocupation = @resource.states.where('date IS NULL')
     @all_days = (0..90).map { |n| n.days.from_now }
 
-    ap reservations
-
     @data_blocks = []
     blocks.each do |block|
       @all_days.each do |day|

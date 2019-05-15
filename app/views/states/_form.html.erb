@@ -1,31 +1,33 @@
 <%= form_for @state do |f| %>
-  <%= fields_for :reservation do |reservation| %>
-    <div>
-      <%= reservation.label 'Full Name' %>
-      <%= reservation.text_field :name, placeholder: 'Juan Pérez' %>
-    </div>
+  <div id="form-container">
+    <%= fields_for :reservation do |reservation| %>
+      <div>
+        <%= reservation.label 'Full Name' %>
+        <%= reservation.text_field :name, placeholder: 'Juan Pérez', required: true %>
+      </div>
+
+      <div>
+        <%= reservation.label 'Email' %>
+        <%= reservation.email_field :mail, placeholder: 'jperez@mail.cl', required: true %>
+      </div>
+
+      <div>
+        <%= reservation.label 'Phone' %>
+        <%= reservation.text_field :phone, placeholder: '+56 9 1234 5678', required: true %>
+      </div>
+
+      <div>
+        <%= reservation.label 'Comments (optional)' %>
+        <%= reservation.text_area :comment %>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :date, id: 'state-date' %>
+    <%= f.hidden_field :block_id, id: 'state-block' %>
+    <%= f.hidden_field :resource_id, value: @resource.id %>
 
     <div>
-      <%= reservation.label 'Email' %>
-      <%= reservation.email_field :mail, placeholder: 'jperez@mail.cl' %>
+      <%= f.submit 'Book' %>
     </div>
-
-    <div>
-      <%= reservation.label 'Phone' %>
-      <%= reservation.text_field :phone, placeholder: '+56 9 1234 5678' %>
-    </div>
-
-    <div>
-      <%= reservation.label 'Comments (optional)' %>
-      <%= reservation.text_area :comment %>
-    </div>
-  <% end %>
-
-  <%= f.hidden_field :date, id: 'state-date' %>
-  <%= f.hidden_field :block_id, id: 'state-block' %>
-  <%= f.hidden_field :resource_id, value: @resource.id %>
-
-  <div>
-    <%= f.submit 'Book' %>
   </div>
 <% end %>
