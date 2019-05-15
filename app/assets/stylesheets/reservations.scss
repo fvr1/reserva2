@@ -29,18 +29,18 @@
       }
     }
   }
+}
 
-  table {
-    margin: 0% 5%;
-    width: 80%;
-    border-collapse: collapse;
+table#resource-table {
+  margin: 0% 5%;
+  width: 80%;
+  border-collapse: collapse;
 
-    td, th {
-      border: 1px solid black;
-    }
+  td, th {
+    border: 1px solid black;
+  }
 
-    td {
-      text-align: center;
-    }
+  td {
+    text-align: center;
   }
 }

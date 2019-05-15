@@ -6,6 +6,6 @@ class ReservationsController < ApplicationController
   private
 
   def set_reservation
-    @reservation = Reservation.find_by(id: params[:id])
+    @reservation = Reservation.includes(state: [:resource, :block]).find_by(id: params[:id])
   end
 end

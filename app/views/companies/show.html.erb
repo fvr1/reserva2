@@ -12,7 +12,7 @@
       data-block-id="<%= block.block.id %>"
       data-date="<%= block.start_time %>"
     >
-      Start time <%= block.start_time.strftime("%H:%M")%> <br/>
+      Start time <%= block.start_time.strftime("%H:%M") %> <br/>
       End time <%= block.end_time.strftime("%H:%M") %> <br/>
     </div>
   <% end %>
@@ -21,18 +21,7 @@
 <div id="reservation-form">
   <h3>Fill the following form to complete your booking.</h3>
 
-  <table>
-    <tr>
-      <th>Resource</th>
-      <th>Date</th>
-      <th>Time</th>
-    </tr>
-    <tr>
-      <td><%= @resource.name %></td>
-      <td id="pre-reservation-date"></td>
-      <td id="pre-reservation-time"></td>
-    </tr>
-  <table>
+  <%= render 'reservations/resource_table', resource: @resource, state: nil, block: nil %>
 
   <%= render 'states/form' %>
 </div>
