@@ -3,12 +3,9 @@
     <div>
       <%= f.label 'Name' %>
       <%= f.text_field :name, placeholder: @company.name, required: true %>
-    </div>
-    <div>
       <%= f.submit 'Save' %>
     </div>
   <% end %>
-
 
   <%= render 'blocks/form' %>
 </div>
