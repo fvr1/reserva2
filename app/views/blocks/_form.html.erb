@@ -1,0 +1,20 @@
+<%= form_for @block do |f| %>
+  <div id='block-form-container'>
+    <div class='block-input'>
+    <%= f.label 'Day' %>
+    <%= select_tag(:day, options_for_select([['Monday', 0], ['Tuesday', 1], ['Wednesday', 2] , ['Thursday', 3] , ['Friday', 4] , ['Saturday', 5] , ['Sunday', 6]]))%>
+
+    </div>
+    <div class='block-input'>
+      <%= f.label 'Start' %>
+      <%= f.time_field :start_time, required: true %>
+    </div>
+    <div class='block-input'>
+      <%= f.label 'End' %>
+      <%= f.time_field :end_time, required: true %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

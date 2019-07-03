@@ -1,0 +1,47 @@
+<h1><%= @company.name %></h1>
+<h3><%= @resource.name %></h3>
+
+
+<%= week_calendar events: @data_blocks do |date, data_blocks| %>
+  <span class="data-block" id="">
+    <%= date %>
+  </span>
+  <% data_blocks.each do |block| %>
+    <% if block.available %>
+      <div
+        class="block available"
+        data-block-id="<%= block.block.id %>"
+        data-date="<%= block.start_time %>"
+      >
+        Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+        End time <%= block.end_time.strftime("%H:%M") %> <br/>
+      </div>
+    <% elsif block.ocupation %>
+      <div
+        class="block not-available"
+        data-block-id="<%= block.block.id %>"
+        data-date="<%= block.start_time %>"
+      >
+        Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+        Reason <%= block.ocupation.category %>
+        End time <%= block.end_time.strftime("%H:%M") %> <br/>
+      </div>
+
+    <% else %>
+
+      <div
+        class="block not-available"
+        data-block-id="<%= block.block.id %>"
+        data-date="<%= block.start_time %>"
+      >
+        Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+        Nombre <%= block.reservation.name %> <br/>
+        Número <%= block.reservation.phone %> <br/>
+        Mail <%= block.reservation.mail %> <br/>
+        Comentarios <%= block.reservation.comment %> <br/>
+        End time <%= block.end_time.strftime("%H:%M") %> <br/>
+      </div>
+    <% end %>
+
+  <% end %>
+<% end %>
