@@ -4,18 +4,11 @@
     <%= f.label 'Day' %>
     <%= f.select(:day, options_for_select([['Monday', 0], ['Tuesday', 1], ['Wednesday', 2] , ['Thursday', 3] , ['Friday', 4] , ['Saturday', 5] , ['Sunday', 6]]))%>
 
-    </div>
-    <div class='block-input'>
       <%= f.label 'Start' %>
       <%= f.time_field :start_time, required: true %>
-    </div>
-    <div class='block-input'>
       <%= f.label 'End' %>
       <%= f.time_field :end_time, required: true %>
-    </div>
-  </div>
-  <%= f.hidden_field :company_id, value: @company.id %>
-  <div>
     <%= f.submit 'Save' %>
   </div>
+  <%= f.hidden_field :company_id, value: @company.id %>
 <% end %>
