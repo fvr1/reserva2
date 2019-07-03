@@ -5,11 +5,14 @@ class CompaniesController < ApplicationController
       redirect_to company_reservations_path(id: params['id'])
     end
     @data_blocks = generate_blocks(@company)
+    @resource = @company.resources.first
+    @state = State.new
   end
 
   def show
     @company = CompanyService.show(params)
     @data_blocks = generate_blocks(@company)
+    @resource = @company.resources.first
     @state = State.new
   end
 
@@ -21,7 +24,6 @@ class CompaniesController < ApplicationController
     @block = Block.new
     blocks = @company.blocks
     @all_days = (-20..20).map { |n| n.days.from_now }
-
 
     @data_blocks = []
     blocks.each do |block|
@@ -81,13 +83,13 @@ def generate_blocks(company)
         same_month = reservation.date.month == day.month
         same_year = reservation.date.year == day.year
         if same_day && same_month && same_year
-          hb.available = false 
-          hb.reservation = reservation.reservation 
+          hb.available = false
+          hb.reservation = reservation.reservation
         end
       end
 
       @data_blocks.push(hb)
     end
   end
-  return @data_blocks
+  @data_blocks
 end

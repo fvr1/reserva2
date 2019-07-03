@@ -45,3 +45,15 @@
 
   <% end %>
 <% end %>
+
+<div id="reservation-form">
+  <h3>Fill the following form to complete your booking.</h3>
+
+  <%= render 'reservations/resource_table', resource: @resource, state: nil, block: nil %>
+
+  <%= render 'states/form' %>
+</div>
+
+<div id="not-available-block">
+  <h3>This block is unavailable.</h3>
+</div>
