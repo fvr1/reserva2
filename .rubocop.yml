@@ -1,1 +1,14 @@
 require: rubocop-performance
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**
+    - config/**
+    - script/**
+    - bin/**
+Documentation:
+  Enabled: false
+FrozenStringLiteralComment:
+  Enabled: false

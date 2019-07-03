@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root to: redirect('/company/1')
+  devise_for :users
+
+  devise_scope :user do
+    root to: 'devise/sessions#new'
+
   get '/company/:id', to: 'companies#index'
   get '/company/:id/reservations', to: 'companies#show'
   get '/company', to: 'companies#new', as: :create_company_path
@@ -7,5 +13,5 @@ Rails.application.routes.draw do
   post '/states', to: 'states#create', as: :states
   post '/blocks', to: 'blocks#create', as: :blocks
 
-  root to: redirect('/company/1')
+  get '*path' => redirect('/')
 end
