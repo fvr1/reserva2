@@ -12,8 +12,19 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = CompanyService.show(params)
-    @blocks = []
     @block = Block.new
+    blocks = @company.blocks
+    @all_days = (-20..20).map { |n| n.days.from_now }
+
+
+    @data_blocks = []
+    blocks.each do |block|
+      @all_days.each do |day|
+        next unless day.strftime('%A').downcase == block.day
+        hb = HelperBlock.create_block(block, day, true)
+        @data_blocks.push(hb)
+      end
+    end
   end
 
   def update
