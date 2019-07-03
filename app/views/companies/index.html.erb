@@ -1,6 +1,8 @@
 <h1><%= @company.name %></h1>
 <h3><%= @resource.name %></h3>
 
+<%= button_to  "Editar", edit_company_path(id: @company.id), {method: 'get'} %>
+
 
 <%= week_calendar events: @data_blocks do |date, data_blocks| %>
   <span class="data-block" id="">

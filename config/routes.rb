@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
 
   get '/companies/:id', to: 'companies#index', as: :company
-  get '/companies/:id/edit', to: 'companies#edit', as: :edit_company
   get '/companies/:id/reservations', to: 'companies#show', as: :company_reservations
+  get '/companies/:id/edit', to: 'companies#edit', as: :edit_company
   get '/reservation/:id/done', to: 'reservations#done', as: :done_reservation
 
   patch '/companies/:id', to: 'companies#update'
