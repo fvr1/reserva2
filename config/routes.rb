@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post '/states', to: 'states#create', as: :states
   post '/blocks', to: 'blocks#create', as: :blocks
 
+  get '*path' => redirect('/')
 end
