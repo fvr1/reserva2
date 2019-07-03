@@ -13,6 +13,14 @@ company = Company.create({ name: 'Reservaditos', phone: '+56987621222',
   description: 'Una gran empresa de reservas'
 })
 
+p '==== Create user ===='
+
+user = User.create({
+  email: 'reservaditos@uc.cl',
+  password: '123456',
+  company: company
+})
+
 
 p '==== Create multiple resources ===='
 
