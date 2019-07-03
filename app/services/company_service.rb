@@ -22,17 +22,18 @@ module CompanyService
       end
     end
 
-    def update
-      @company = set_resource(params, false)
-      if @company and @company.update(resource_params(params))
-        filter_params(@company)
+    def update(params)
+      @company = set_company(params, false)
+
+      if @company and @company.update(company_params(params))
+        return @company
       else
         nil
       end
     end
 
-    def destroy
-      @company = set_resource(params, false)
+    def destroy(params)
+      @company = set_company(params, false)
       if @company and @company.destroy
         {}
       else
@@ -54,7 +55,7 @@ module CompanyService
     end
 
     def company_params(params)
-      params.require(:company).permit(:mail, :phone, :address, :name, :description)
+      params.require(:company).permit(:mail, :phone, :address, :name, :description, :id)
     end
   end
 end
