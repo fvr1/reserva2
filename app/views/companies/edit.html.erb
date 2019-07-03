@@ -3,12 +3,9 @@
     <div>
       <%= f.label 'Name' %>
       <%= f.text_field :name, placeholder: @company.name, required: true %>
-    </div>
-    <div>
       <%= f.submit 'Save' %>
     </div>
   <% end %>
-
 
   <%= render 'blocks/form' %>
 </div>
@@ -24,8 +21,8 @@
       data-block-id="<%= block.block.id %>"
       data-date="<%= block.start_time %>"
     >
-      Start time <%= block.start_time.strftime("%H:%M") %> <br/>
-      End time <%= block.end_time.strftime("%H:%M") %> <br/>
+     <%= block.start_time.strftime("%H:%M") %> - <%= block.end_time.strftime("%H:%M") %> <br/>
+
     </div>
   <% end %>
 <% end %>

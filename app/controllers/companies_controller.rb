@@ -1,6 +1,9 @@
 class CompaniesController < ApplicationController
   def index
     @company = CompanyService.show(params)
+    unless user_signed_in? or (user_signed_in? and current_user['company_id'] != @company.id)
+      redirect_to company_reservations_path(id: params['id'])
+    end
     @data_blocks = generate_blocks(@company)
     @resource = @company.resources.first
     @state = State.new
@@ -15,6 +18,9 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = CompanyService.show(params)
+    unless user_signed_in? or (user_signed_in? and current_user['company_id'] != @company.id)
+      redirect_to company_reservations_path(id: params['id'])
+    end
     @block = Block.new
     blocks = @company.blocks
     @all_days = (-20..20).map { |n| n.days.from_now }
