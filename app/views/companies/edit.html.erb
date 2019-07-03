@@ -1,0 +1,31 @@
+<div >
+  <%= form_for @company do |f| %>
+    <div>
+      <%= f.label 'Name' %>
+      <%= f.text_field :name, placeholder: @company.name, required: true %>
+    </div>
+    <div>
+      <%= f.submit 'Save' %>
+    </div>
+  <% end %>
+
+
+  <%= render 'blocks/form' %>
+</div>
+
+
+<%= week_calendar events: @data_blocks do |date, data_blocks| %>
+  <span class="data-block" id="">
+    <%= date %>
+  </span>
+  <% data_blocks.each do |block| %>
+    <div
+      class="block available"
+      data-block-id="<%= block.block.id %>"
+      data-date="<%= block.start_time %>"
+    >
+      Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+      End time <%= block.end_time.strftime("%H:%M") %> <br/>
+    </div>
+  <% end %>
+<% end %>
