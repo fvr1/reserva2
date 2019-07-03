@@ -1,24 +1,24 @@
-<%= form_for @state do |f| %>
+<%= form_for @state, html: { class: 'bg-white rounded pb_form_v1'} do |f| %>
   <div id="form-container">
     <%= fields_for :reservation do |reservation| %>
-      <div>
+      <div class="form-group">
         <%= reservation.label 'Full Name' %>
-        <%= reservation.text_field :name, placeholder: 'Juan Pérez', required: true %>
+        <%= reservation.text_field :name, placeholder: 'Juan Pérez', required: true, class: 'form-control pb_height-50 reverse' %>
       </div>
 
-      <div>
+      <div class="form-group">
         <%= reservation.label 'Email' %>
-        <%= reservation.email_field :mail, placeholder: 'jperez@mail.cl', required: true %>
+        <%= reservation.email_field :mail, placeholder: 'jperez@mail.cl', required: true, class: 'form-control pb_height-50 reverse' %>
       </div>
 
-      <div>
+      <div class="form-group">
         <%= reservation.label 'Phone' %>
-        <%= reservation.text_field :phone, placeholder: '+56 9 1234 5678', required: true %>
+        <%= reservation.text_field :phone, placeholder: '+56 9 1234 5678', required: true, class: 'form-control pb_height-50 reverse' %>
       </div>
 
-      <div>
+      <div class="form-group">
         <%= reservation.label 'Comments (optional)' %>
-        <%= reservation.text_area :comment %>
+        <%= reservation.text_area :comment, class: 'form-control pb_height-50 reverse' %>
       </div>
     <% end %>
 
@@ -26,8 +26,8 @@
     <%= f.hidden_field :block_id, id: 'state-block' %>
     <%= f.hidden_field :resource_id, value: @resource.id %>
 
-    <div>
-      <%= f.submit 'Book' %>
+    <div class="form-group">
+      <%= f.submit 'Book', class: 'btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue' %>
     </div>
   </div>
 <% end %>
