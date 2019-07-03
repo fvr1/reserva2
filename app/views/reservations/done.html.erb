@@ -1,0 +1,13 @@
+<h1>Thank you <%= @reservation.name %></h1>
+
+<h3>You've booked successfully the next resource:</h3>
+
+<%= render 'reservations/resource_table',
+  resource: @reservation.state.resource,
+  state: @reservation.state,
+  block: @reservation.state.block
+%>
+
+<div class="back-button">
+  <%= link_to 'You can book another block', root_path %>
+</div>

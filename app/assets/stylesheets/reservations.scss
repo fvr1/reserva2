@@ -1,0 +1,76 @@
+// Place all the styles related to the Reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$back-btn-bg-color: gold;
+$book-btn-bg-color: gold;
+
+#reservation-form {
+  #form-container {
+    padding-left: 35%;
+    padding-right: 35%;
+
+    div {
+      width: 100%;
+      margin: 15px 0px;
+
+      label {
+        margin-bottom: 5px;
+        font-size: 20px;
+        display: block;
+      }
+
+      input, textarea {
+        font-size: 18px;
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      input[type=text],
+      input[type=email] {
+        height: 25px;
+      }
+
+      input[type=submit] {
+        background-color: $book-btn-bg-color;
+      }
+    }
+  }
+}
+
+table#resource-table {
+  margin: 0% 5%;
+  width: 80%;
+  border-collapse: collapse;
+
+  td, th {
+    border: 1px solid black;
+  }
+
+  td {
+    text-align: center;
+  }
+}
+
+.back-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: $back-btn-bg-color;
+
+    &:hover {
+      background-color: darken($back-btn-bg-color, 10%);
+    }
+
+    &:active {
+      background-color: darken($back-btn-bg-color, 30%);
+    }
+  }
+}

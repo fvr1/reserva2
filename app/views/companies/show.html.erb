@@ -1,0 +1,31 @@
+<h1><%= @company.name %></h1>
+<h3><%= @resource.name %></h3>
+
+
+<%= week_calendar events: @data_blocks do |date, data_blocks| %>
+  <span class="data-block" id="">
+    <%= date %>
+  </span>
+  <% data_blocks.each do |block| %>
+    <div
+      class="block <%= block.available ? "available" : "not-available" %>"
+      data-block-id="<%= block.block.id %>"
+      data-date="<%= block.start_time %>"
+    >
+      Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+      End time <%= block.end_time.strftime("%H:%M") %> <br/>
+    </div>
+  <% end %>
+<% end %>
+
+<div id="reservation-form">
+  <h3>Fill the following form to complete your booking.</h3>
+
+  <%= render 'reservations/resource_table', resource: @resource, state: nil, block: nil %>
+
+  <%= render 'states/form' %>
+</div>
+
+<div id="not-available-block">
+  <h3>This block is unavailable.</h3>
+</div>

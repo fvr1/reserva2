@@ -22,6 +22,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'materialize-sass'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'jquery-validation-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -41,6 +45,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'awesome_print'
 end
 
 group :development do
@@ -50,7 +55,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
+  gem 'rubocop', require: false
+  gem 'rubocop-performance'
 end
 
 group :test do
@@ -63,7 +69,11 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'shoulda-matchers', '~> 4.0.1'
+  gem 'rubocop-rspec', '~> 1.32.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "simple_calendar", "~> 2.0"
