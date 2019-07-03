@@ -15,8 +15,7 @@
         data-block-id="<%= block.block.id %>"
         data-date="<%= block.start_time %>"
       >
-        Start time <%= block.start_time.strftime("%H:%M") %> <br/>
-        End time <%= block.end_time.strftime("%H:%M") %> <br/>
+         <%= block.start_time.strftime("%H:%M") %> - <%= block.end_time.strftime("%H:%M") %> <br/>
       </div>
     <% elsif block.ocupation %>
       <div
@@ -24,9 +23,9 @@
         data-block-id="<%= block.block.id %>"
         data-date="<%= block.start_time %>"
       >
-        Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+         <%= block.start_time.strftime("%H:%M") %> - <%= block.end_time.strftime("%H:%M") %> <br/>
         Reason <%= block.ocupation.category %>
-        End time <%= block.end_time.strftime("%H:%M") %> <br/>
+        
       </div>
 
     <% else %>
@@ -36,12 +35,11 @@
         data-block-id="<%= block.block.id %>"
         data-date="<%= block.start_time %>"
       >
-        Start time <%= block.start_time.strftime("%H:%M") %> <br/>
+         <%= block.start_time.strftime("%H:%M") %> - <%= block.end_time.strftime("%H:%M") %> <br/>
         Nombre <%= block.reservation.name %> <br/>
         Número <%= block.reservation.phone %> <br/>
         Mail <%= block.reservation.mail %> <br/>
         Comentarios <%= block.reservation.comment %> <br/>
-        End time <%= block.end_time.strftime("%H:%M") %> <br/>
       </div>
     <% end %>
 

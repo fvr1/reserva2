@@ -11,8 +11,16 @@
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="/assets/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="/assets/fonts/law-icons/font/flaticon.css">
+    <%
+=begin%>
+ <link rel="stylesheet" href="/assets/fonts/ionicons/css/ionicons.min.css"> 
+<%
+=end%>
+    <%
+=begin%>
+ <link rel="stylesheet" href="/assets/fonts/law-icons/font/flaticon.css"> 
+<%
+=end%>
 
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/font-awesome.min.css">
 
@@ -26,28 +34,20 @@
 	</head>
 	<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 
-    <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="pb-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light pb_gradient_v1" id="pb-navbar">
       <div class="container">
         <a class="navbar-brand" href="index.html">Reserva2</a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span><i class="ion-navicon"></i></span>
         </button>
-        <div class="collapse navbar-collapse" id="probootstrap-navbar">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-features">Features</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-reviews">Reviews</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-pricing">Pricing</a></li>
-            <li class="nav-item"><a class="nav-link" href="#section-faq">FAQ</a></li>
-          </ul>
-        </div>
+        
       </div>
     </nav>
     <!-- END nav -->
 
 
 
-    <section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
+    <section class="pb_cover_v3 overflow-hidden cover-bg-opacity text-left pb_slant-light" id="section-home">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <p class="notice"><%= notice %></p>

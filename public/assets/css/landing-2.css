@@ -28,7 +28,6 @@ body {
     left: -50px;
     height: 200px;
     width: 130%;
-    background-color: #f2f4f9;
     -webkit-transform: rotate(-4deg);
     -ms-transform: rotate(-4deg);
     transform: rotate(-4deg);
@@ -48,11 +47,10 @@ body {
   padding: 10em 0; }
 
 .pb_cover_v3 a, .pb_xl_py_cover a {
-  color: rgba(255, 255, 255, 0.5);
+  color: gray;
   border-bottom: 2px solid transparent; }
   .pb_cover_v3 a:hover, .pb_xl_py_cover a:hover {
-    color: white;
     border-bottom: 2px solid white; }
 
 .pb_cover_v3 .btn, .pb_xl_py_cover .btn {
-  color: white; }
+   }
